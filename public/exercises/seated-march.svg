@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="Seated marches">
+  <rect width="240" height="180" fill="#f4f0e8"/>
+  <rect x="80" y="100" width="80" height="50" rx="6" fill="#d9d2c5"/>
+  <circle cx="120" cy="55" r="16" fill="#2c2a28"/>
+  <path d="M120 70 L120 100" stroke="#8b1f2e" stroke-width="14" stroke-linecap="round"/>
+  <path d="M120 100 L95 140" stroke="#8b1f2e" stroke-width="12" stroke-linecap="round"/>
+  <path d="M120 100 L145 115 L145 85" stroke="#8b1f2e" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <text x="20" y="36" font-family="Georgia, serif" font-size="22" fill="#2c2a28">Seated marches</text>
+</svg>

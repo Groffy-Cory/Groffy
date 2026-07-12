@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="Heel slides">
+  <rect width="240" height="180" fill="#f4f0e8"/>
+  <rect x="40" y="120" width="160" height="18" rx="4" fill="#d9d2c5"/>
+  <path d="M55 120 Q90 70 140 120" stroke="#8b1f2e" stroke-width="16" fill="none" stroke-linecap="round"/>
+  <circle cx="140" cy="120" r="12" fill="#2c2a28"/>
+  <text x="20" y="36" font-family="Georgia, serif" font-size="22" fill="#2c2a28">Heel slides</text>
+</svg>

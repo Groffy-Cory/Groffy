@@ -1,0 +1,55 @@
+import { DEMO_USER_ID, type Message } from "@/lib/messages/types";
+
+/** Sample inbox for MVP until Supabase + realfamilystories.com are connected. */
+export const SAMPLE_MESSAGES: Message[] = [
+  {
+    id: "sample-family-1",
+    userId: DEMO_USER_ID,
+    source: "family",
+    sender: "Sarah (daughter)",
+    body: "Hi Mom! I uploaded new photos from Sunday dinner on Real Family Stories. Look for the album called “Front Porch Laughs.” Love you!",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 5).toISOString(),
+    read: false,
+    replyToId: null,
+  },
+  {
+    id: "sample-family-2",
+    userId: DEMO_USER_ID,
+    source: "family",
+    sender: "Michael (son)",
+    body: "Just checking in. I’ll call tomorrow after work. The kids want to hear your pancake story again.",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 26).toISOString(),
+    read: false,
+    replyToId: null,
+  },
+  {
+    id: "sample-doctor-1",
+    userId: DEMO_USER_ID,
+    source: "doctor",
+    sender: "Dr. Patel’s office",
+    body: "Reminder: your checkup is Thursday at 10:30 AM. Please bring your medication list. Call us if you need a ride arranged.",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 10).toISOString(),
+    read: false,
+    replyToId: null,
+  },
+  {
+    id: "sample-doctor-2",
+    userId: DEMO_USER_ID,
+    source: "doctor",
+    sender: "Caregiver Ana",
+    body: "Blood pressure looked good this morning. Keep taking your evening pill with dinner. I’ll stop by Friday.",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 32).toISOString(),
+    read: true,
+    replyToId: null,
+  },
+  {
+    id: "sample-group-1",
+    userId: DEMO_USER_ID,
+    source: "group",
+    sender: "Family Group",
+    body: "Welcome to the family group chat. Soon everyone can talk here together. For now, this is a preview.",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 48).toISOString(),
+    read: true,
+    replyToId: null,
+  },
+];

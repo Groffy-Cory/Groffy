@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="Wall finger walks">
+  <rect width="240" height="180" fill="#f4f0e8"/>
+  <rect x="170" y="20" width="40" height="140" fill="#d9d2c5"/>
+  <circle cx="95" cy="50" r="14" fill="#2c2a28"/>
+  <path d="M95 64 L120 100 L150 70 L170 90" stroke="#8b1f2e" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <text x="20" y="36" font-family="Georgia, serif" font-size="22" fill="#2c2a28">Wall walks</text>
+</svg>

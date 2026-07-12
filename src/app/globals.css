@@ -1,0 +1,316 @@
+@import "tailwindcss";
+
+/* Shared tokens */
+:root {
+  --royal: #2f5bea;
+  --royal-dark: #1e44c4;
+  --royal-soft: #e8eefc;
+  --radius-card: 1rem;
+  --parchment: #f3e6c8;
+  --parchment-deep: #e8d4a8;
+  --parchment-edge: #c4a574;
+  --parchment-fiber: rgba(120, 85, 40, 0.07);
+  --bronze-200: #dcc49a;
+  --bronze-300: #c4a574;
+  --bronze-900: #1a140e;
+}
+
+/* Option 1 — Steel grey skeleton */
+:root,
+html[data-theme="option-1"] {
+  --steel-50: #f4f5f7;
+  --steel-100: #e8eaee;
+  --steel-200: #d0d5dc;
+  --steel-300: #a8b0bc;
+  --steel-400: #7a8494;
+  --steel-500: #5c6675;
+  --steel-600: #4a5260;
+  --steel-700: #3b424e;
+  --steel-800: #2f3540;
+  --steel-900: #232830;
+  --card: #ffffff;
+  --ink: #1a1f27;
+  --muted: #3d4654;
+  --background: var(--steel-500);
+  --foreground: var(--ink);
+  --surface-raised: #ffffff;
+  --surface-inset: #f4f5f7;
+  --border-strong: var(--steel-200);
+  --input-border: var(--steel-300);
+  --input-bg: #ffffff;
+  --logo-ring: var(--steel-200);
+  --shadow-card: 0 8px 24px rgba(23, 28, 36, 0.18);
+  --body-bg-color: var(--steel-500);
+  --body-bg-image:
+    radial-gradient(ellipse at top left, rgba(47, 91, 234, 0.12), transparent 42%),
+    radial-gradient(ellipse at bottom right, rgba(23, 28, 36, 0.22), transparent 48%),
+    linear-gradient(160deg, var(--steel-400) 0%, var(--steel-500) 45%, var(--steel-600) 100%);
+  --card-bg-image: none;
+  --card-border: var(--steel-200);
+}
+
+/* Option 2 — parchment palette (The Secret–inspired contrast) */
+html[data-theme="option-2"] {
+  --steel-50: #faf3e3;
+  --steel-100: #f3e6c8;
+  --steel-200: #d9c49a;
+  --steel-300: #b89a68;
+  --steel-400: #8a6a3c;
+  --steel-500: #6b5130;
+  --steel-600: #4a3824;
+  --steel-700: #3a2c1c;
+  --steel-800: #2f2418;
+  --steel-900: #1a140e;
+  /* Wax-seal maroon on parchment — high contrast, antique manuscript feel */
+  --royal: #8b1f2e;
+  --royal-dark: #641623;
+  --royal-soft: #f3e2df;
+  /* Antique gold for secondary accents / taglines */
+  --accent-gold: #9a7428;
+  --accent-gold-dark: #7a5a1c;
+  --card: var(--parchment);
+  --ink: #1a120c;
+  --muted: #4a3420;
+  --background: var(--bronze-900);
+  --foreground: var(--ink);
+  --surface-raised: #fffaf0;
+  --surface-inset: rgba(255, 250, 240, 0.72);
+  --border-strong: var(--bronze-200);
+  --input-border: var(--bronze-300);
+  --input-bg: #fffaf0;
+  --logo-ring: #a67c2d;
+  --shadow-card:
+    0 10px 28px rgba(10, 7, 4, 0.45),
+    0 1px 0 rgba(255, 248, 230, 0.35) inset;
+  --body-bg-color: var(--bronze-900);
+  --body-bg-image:
+    radial-gradient(ellipse 90% 60% at 15% 10%, rgba(184, 140, 70, 0.28), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 88% 85%, rgba(60, 40, 20, 0.75), transparent 50%),
+    radial-gradient(circle at 50% 40%, rgba(90, 65, 35, 0.35), transparent 62%),
+    linear-gradient(165deg, #3a2a1a 0%, #1a140e 48%, #0f0b08 100%);
+  --card-bg-image:
+    linear-gradient(180deg, rgba(255, 250, 235, 0.55), transparent 40%),
+    repeating-linear-gradient(
+      -12deg,
+      transparent,
+      transparent 3px,
+      var(--parchment-fiber) 3px,
+      var(--parchment-fiber) 4px
+    ),
+    radial-gradient(ellipse at 20% 0%, rgba(255, 248, 230, 0.65), transparent 50%),
+    linear-gradient(145deg, var(--parchment) 0%, var(--parchment-deep) 100%);
+  --card-border: var(--parchment-edge);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-steel-50: var(--steel-50);
+  --color-steel-100: var(--steel-100);
+  --color-steel-200: var(--steel-200);
+  --color-steel-300: var(--steel-300);
+  --color-steel-400: var(--steel-400);
+  --color-steel-500: var(--steel-500);
+  --color-steel-600: var(--steel-600);
+  --color-steel-700: var(--steel-700);
+  --color-steel-800: var(--steel-800);
+  --color-steel-900: var(--steel-900);
+  --color-royal: var(--royal);
+  --color-royal-dark: var(--royal-dark);
+  --color-royal-soft: var(--royal-soft);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-surface-raised: var(--surface-raised);
+  --font-sans: var(--font-atkinson);
+  --font-display: var(--font-fraunces);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--body-bg-color);
+  background-image: var(--body-bg-image);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-atkinson), "Atkinson Hyperlegible", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.55;
+  /* Avoid iOS rubber-band covering fixed UI */
+  overscroll-behavior-y: none;
+  padding:
+    env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 1.1875rem;
+    line-height: 1.6;
+    /* Fixed backgrounds can jank on mobile Safari */
+    background-attachment: scroll;
+  }
+}
+
+::selection {
+  background: var(--royal-soft);
+  color: var(--ink);
+}
+
+.rof-card {
+  background-color: var(--card);
+  background-image: var(--card-bg-image);
+  border: 2px solid var(--card-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  color: var(--ink);
+}
+
+/* Option 2 — crisp parchment */
+html[data-theme="option-2"] .rof-card {
+  border: 2px solid var(--parchment-edge);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="option-2"] .rof-paper-tab {
+  border: 2px solid transparent;
+  border-radius: 0.75rem;
+  background-color: var(--steel-50);
+}
+
+html[data-theme="option-2"] .rof-paper-tab:hover {
+  border-color: var(--steel-200);
+  background: var(--surface-raised);
+}
+
+html[data-theme="option-2"] .rof-paper-tab-active {
+  border: 2px solid var(--royal);
+  border-radius: 0.75rem;
+  background: var(--royal) !important;
+  color: #fffaf0 !important;
+}
+
+html[data-theme="option-2"] .rof-inset {
+  border-radius: 0.75rem;
+}
+
+.rof-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3.25rem;
+  min-width: 3.25rem;
+  padding: 0.85rem 1.35rem;
+  border-radius: 0.85rem;
+  border: 2px solid transparent;
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.25;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+@media (max-width: 640px) {
+  .rof-btn {
+    min-height: 3.5rem;
+    padding: 0.95rem 1.4rem;
+    font-size: 1.125rem;
+  }
+}
+
+.rof-btn:focus-visible {
+  outline: 3px solid var(--royal);
+  outline-offset: 2px;
+}
+
+.rof-btn-primary {
+  background: var(--royal);
+  color: #ffffff;
+}
+
+.rof-btn-primary:hover {
+  background: var(--royal-dark);
+}
+
+.rof-btn-secondary {
+  background: var(--royal-soft);
+  color: var(--royal-dark);
+  border-color: color-mix(in srgb, var(--royal) 28%, white);
+}
+
+.rof-btn-secondary:hover {
+  background: color-mix(in srgb, var(--royal-soft) 70%, white);
+}
+
+.rof-input,
+.rof-textarea,
+.rof-select {
+  width: 100%;
+  min-height: 3.5rem;
+  border: 2px solid var(--input-border);
+  border-radius: 0.85rem;
+  background: var(--input-bg);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 0.95rem 1.1rem;
+  touch-action: manipulation;
+}
+
+.rof-input:focus,
+.rof-textarea:focus,
+.rof-select:focus {
+  outline: none;
+  border-color: var(--royal);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--royal) 28%, transparent);
+}
+
+.rof-textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.rof-inset {
+  background: var(--surface-inset);
+  border: 2px solid var(--border-strong);
+  border-radius: 0.75rem;
+}
+
+.rof-logo-ring {
+  box-shadow: 0 0 0 2px var(--logo-ring);
+}
+
+/* Senior-friendly sidebar / feature tabs on phones */
+.rof-paper-tab,
+.rof-paper-tab-active {
+  min-height: 3.25rem;
+}
+
+@media (max-width: 640px) {
+  .rof-paper-tab,
+  .rof-paper-tab-active {
+    min-height: 3.5rem;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    font-size: 1.125rem;
+  }
+}
+
+/* Modal sheet sits above home-indicator on phones */
+.rof-modal-backdrop {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}

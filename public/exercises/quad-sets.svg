@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="Quad sets">
+  <rect width="240" height="180" fill="#f4f0e8"/>
+  <rect x="30" y="110" width="180" height="24" rx="6" fill="#d9d2c5"/>
+  <rect x="50" y="88" width="140" height="22" rx="11" fill="#8b1f2e"/>
+  <circle cx="50" cy="99" r="14" fill="#2c2a28"/>
+  <text x="20" y="36" font-family="Georgia, serif" font-size="22" fill="#2c2a28">Quad sets</text>
+  <text x="55" y="155" font-family="Arial, sans-serif" font-size="14" fill="#5c5854">Press knee gently down</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="Shoulder rolls">
+  <rect width="240" height="180" fill="#f4f0e8"/>
+  <circle cx="120" cy="55" r="18" fill="#2c2a28"/>
+  <path d="M90 80 Q120 120 150 80" stroke="#8b1f2e" stroke-width="16" fill="none" stroke-linecap="round"/>
+  <path d="M70 95 Q60 70 85 75" stroke="#c4a35a" stroke-width="4" fill="none"/>
+  <path d="M170 95 Q180 70 155 75" stroke="#c4a35a" stroke-width="4" fill="none"/>
+  <text x="20" y="36" font-family="Georgia, serif" font-size="22" fill="#2c2a28">Shoulder rolls</text>
+</svg>

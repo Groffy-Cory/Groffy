@@ -1,0 +1,53 @@
+import { DEMO_VAULT_OWNER_ID, type VaultEntry } from "@/lib/memory-vault/types";
+
+/** Sample vault for MVP until Supabase sync is connected on both domains. */
+export const SAMPLE_VAULT_ENTRIES: VaultEntry[] = [
+  {
+    id: "vault-story-1",
+    ownerId: DEMO_VAULT_OWNER_ID,
+    type: "story",
+    title: "Sunday pancakes with Dad",
+    body: "Every Sunday, Dad made pancakes shaped like animals. Mine was always a bunny. The kitchen smelled like butter and maple syrup, and we ate them on the porch even in winter.",
+    mediaUrl: null,
+    contributedBy: "You",
+    sourceApp: "rof",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 12).toISOString(),
+    updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 12).toISOString(),
+  },
+  {
+    id: "vault-photo-1",
+    ownerId: DEMO_VAULT_OWNER_ID,
+    type: "photo",
+    title: "Front porch, summer 1968",
+    body: "Photo of the whole family on the front porch steps. Grandma’s roses are blooming behind us. Sarah will upload the scanned print from Real Family Stories soon.",
+    mediaUrl: null,
+    contributedBy: "Sarah (daughter)",
+    sourceApp: "family_portal",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 5).toISOString(),
+    updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 5).toISOString(),
+  },
+  {
+    id: "vault-voice-1",
+    ownerId: DEMO_VAULT_OWNER_ID,
+    type: "voice",
+    title: "The night we met",
+    body: "Voice note reminder: tell the story about meeting at the county fair — the Ferris wheel stuck at the top, and how we laughed until the carnie climbed up.",
+    mediaUrl: null,
+    contributedBy: "You",
+    sourceApp: "rof",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 36).toISOString(),
+    updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 36).toISOString(),
+  },
+  {
+    id: "vault-family-1",
+    ownerId: DEMO_VAULT_OWNER_ID,
+    type: "family_message",
+    title: "For Mom — from Michael",
+    body: "Mom, I wrote this so the kids never forget: you taught me how to parallel park with a grocery bag on my head for ‘focus.’ We still laugh about it. Love you.",
+    mediaUrl: null,
+    contributedBy: "Michael (son)",
+    sourceApp: "family_portal",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 8).toISOString(),
+    updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 8).toISOString(),
+  },
+];

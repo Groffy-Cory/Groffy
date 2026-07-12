@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="Pendulum swings">
+  <rect width="240" height="180" fill="#f4f0e8"/>
+  <rect x="150" y="50" width="50" height="80" fill="#c4a35a"/>
+  <circle cx="100" cy="55" r="16" fill="#2c2a28"/>
+  <path d="M100 70 L100 110" stroke="#8b1f2e" stroke-width="14" stroke-linecap="round"/>
+  <path d="M100 110 Q120 140 140 150" stroke="#8b1f2e" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <text x="20" y="36" font-family="Georgia, serif" font-size="22" fill="#2c2a28">Pendulum</text>
+</svg>

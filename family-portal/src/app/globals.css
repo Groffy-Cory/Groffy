@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  --page-bg: #eef3f0;
+  --ink: #1a2a24;
+  --muted: #4d5f57;
+  --surface: #f7faf8;
+  --surface-raised: #ffffff;
+  --accent: #1f6b57;
+  --accent-dark: #154a3c;
+  --border: #c5d4cc;
+  --danger: #8b2e2e;
+  --shadow: 0 10px 30px rgba(26, 42, 36, 0.08);
+}
+
+@theme inline {
+  --color-background: var(--page-bg);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(31, 107, 87, 0.12), transparent 40%),
+    linear-gradient(180deg, #f4f8f6 0%, var(--page-bg) 55%, #e7efe9 100%);
+  color: var(--ink);
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+}
+
+.fp-card {
+  background: var(--surface-raised);
+  border: 2px solid var(--border);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.fp-inset {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 1rem;
+}
+
+.fp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.9rem;
+  border: 2px solid transparent;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.fp-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.fp-btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.fp-btn-primary:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+.fp-btn-secondary {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--ink);
+}
+
+.fp-btn-secondary:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.fp-input,
+.fp-textarea,
+.fp-select {
+  width: 100%;
+  min-height: 3.5rem;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 0.9rem;
+  background: white;
+  color: var(--ink);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.fp-textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.fp-input:focus,
+.fp-textarea:focus,
+.fp-select:focus,
+.fp-btn:focus-visible {
+  outline: 3px solid rgba(31, 107, 87, 0.35);
+  outline-offset: 2px;
+}
+
+.fp-nav-btn[aria-current="page"] {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
