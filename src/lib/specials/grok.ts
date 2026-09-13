@@ -85,6 +85,7 @@ async function completeGrok(
 ): Promise<string | null> {
   const apiKey = process.env.XAI_API_KEY;
   if (!apiKey || apiKey === "your_xai_api_key") {
+    console.error("xAI request skipped: XAI_API_KEY is not configured");
     return null;
   }
 
@@ -106,6 +107,13 @@ async function completeGrok(
     });
 
     if (!response.ok) {
+      const error = await response.text();
+      console.error("xAI request failed", {
+        model,
+        status: response.status,
+        statusText: response.statusText,
+        error: error.slice(0, 1000),
+      });
       return null;
     }
 
@@ -114,7 +122,11 @@ async function completeGrok(
     };
     const content = data.choices?.[0]?.message?.content?.trim();
     return content || null;
-  } catch {
+  } catch (error) {
+    console.error("xAI request errored", {
+      model,
+      error: error instanceof Error ? error.message : String(error),
+    });
     return null;
   }
 }
