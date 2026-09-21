@@ -75,7 +75,7 @@ export async function analyzeImageWithGrok(
         ],
       },
     ],
-    "grok-2-vision-1212",
+    "grok-4.7",
   );
 }
 
