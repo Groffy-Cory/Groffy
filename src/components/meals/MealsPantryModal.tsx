@@ -52,12 +52,34 @@ export function MealsPantryModal() {
   if (!isOpen) return null;
 
   async function fileToDataUrl(file: File): Promise<string> {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(String(reader.result));
-      reader.onerror = () => reject(new Error("Could not read photo"));
-      reader.readAsDataURL(file);
+    const image = await new Promise<HTMLImageElement>((resolve, reject) => {
+      const objectUrl = URL.createObjectURL(file);
+      const element = new Image();
+      element.onload = () => {
+        URL.revokeObjectURL(objectUrl);
+        resolve(element);
+      };
+      element.onerror = () => {
+        URL.revokeObjectURL(objectUrl);
+        reject(new Error("Could not read photo"));
+      };
+      element.src = objectUrl;
     });
+
+    for (const maxDimension of [1600, 1200, 900]) {
+      const scale = Math.min(1, maxDimension / Math.max(image.width, image.height));
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.round(image.width * scale);
+      canvas.height = Math.round(image.height * scale);
+      const context = canvas.getContext("2d");
+      if (!context) throw new Error("Could not prepare photo");
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+      const dataUrl = canvas.toDataURL("image/jpeg", 0.82);
+      if (dataUrl.length <= 3_500_000) return dataUrl;
+    }
+
+    throw new Error("Photo is too large. Try a closer, smaller picture.");
   }
 
   async function handleScan(
@@ -94,12 +116,15 @@ export function MealsPantryModal() {
         recipes: data.recipes || [],
         note: data.note,
       });
-    } catch {
+    } catch (error) {
       setScanResult({
         mode,
         items: [],
         recipes: [],
-        note: "Something went wrong reading that photo.",
+        note:
+          error instanceof Error
+            ? error.message
+            : "Something went wrong reading that photo.",
       });
     } finally {
       setScanning(false);
