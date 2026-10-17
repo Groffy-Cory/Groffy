@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+:root {
+  --burgundy-deep: #2a0f14;
+  --burgundy: #4a1822;
+  --burgundy-light: #6b2430;
+  --navy-deep: #0a1220;
+  --navy: #121f38;
+  --navy-light: #1a2d4f;
+  --steel: #9aa3ad;
+  --steel-bright: #c8d0d8;
+  --steel-dark: #5c6570;
+  --silver-edge: rgba(200, 208, 216, 0.45);
+  --ink: #e8ecf0;
+  --muted: #a8b2bc;
+  --surface: rgba(18, 31, 56, 0.92);
+  --surface-raised: rgba(26, 45, 79, 0.95);
+  --border: rgba(154, 163, 173, 0.35);
+  --border-strong: rgba(200, 208, 216, 0.55);
+  --accent: #8b2432;
+  --accent-glow: rgba(139, 36, 50, 0.35);
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --rivet: rgba(200, 208, 216, 0.25);
+}
+
+@theme inline {
+  --color-background: var(--navy-deep);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+  background-color: var(--burgundy-deep);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(107, 36, 48, 0.55), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 90% 100%, rgba(18, 31, 56, 0.9), transparent 50%),
+    linear-gradient(165deg, var(--burgundy-deep) 0%, var(--navy-deep) 42%, #060a12 100%);
+}
+
+.don-rivet-border {
+  border: 2px solid var(--border-strong);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 var(--silver-edge),
+    var(--shadow);
+}
+
+.don-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 28%),
+    var(--surface-raised);
+  border: 2px solid var(--border-strong);
+  border-radius: 1rem;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 var(--silver-edge),
+    var(--shadow);
+}
+
+.don-sidebar {
+  background:
+    linear-gradient(180deg, rgba(74, 24, 34, 0.35) 0%, transparent 22%),
+    linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+  border: 2px solid var(--border-strong);
+  border-radius: 1rem;
+  box-shadow:
+    inset 0 1px 0 var(--silver-edge),
+    var(--shadow);
+}
+
+.don-inset {
+  background: rgba(10, 18, 32, 0.55);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+
+.don-tab {
+  display: block;
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  border: 2px solid transparent;
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.03);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.don-tab:hover {
+  border-color: var(--border);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.don-tab-active {
+  border-color: var(--steel-bright);
+  background: linear-gradient(
+    135deg,
+    rgba(154, 163, 173, 0.22) 0%,
+    rgba(74, 24, 34, 0.45) 100%
+  );
+  color: #fff;
+  box-shadow: inset 0 1px 0 var(--silver-edge);
+}
+
+.don-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 0.65rem;
+  border: 2px solid var(--border-strong);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.don-btn-primary {
+  background: linear-gradient(180deg, var(--burgundy-light) 0%, var(--accent) 100%);
+  color: #fff;
+  border-color: var(--steel);
+}
+
+.don-btn-primary:hover {
+  border-color: var(--steel-bright);
+  filter: brightness(1.06);
+}
+
+.don-btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ink);
+}
+
+.don-btn-secondary:hover {
+  border-color: var(--steel);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.don-btn:focus-visible,
+.don-tab:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--accent-glow);
+  outline-offset: 2px;
+}
+
+.don-motto {
+  letter-spacing: 0.22em;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.don-logo-frame {
+  border: 2px solid var(--border-strong);
+  box-shadow:
+    inset 0 0 0 3px rgba(0, 0, 0, 0.25),
+    0 4px 16px rgba(0, 0, 0, 0.4);
+}
