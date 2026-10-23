@@ -15,16 +15,17 @@ const body = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "The DON Eye · Care · Honor · Service",
+  title: "The DON Eye · From Bedside to Boardroom",
   description:
-    "Command center for daily focus, motivation, news, training, and links to Real Old Friend.",
+    "Professional dashboard for Directors of Nursing — daily focus, regulations, training, forums, and ROF Reports.",
+  icons: {
+    icon: "/don-eye-logo.png",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className={`${display.variable} ${body.variable} antialiased`}>

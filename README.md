@@ -36,9 +36,9 @@ npm run dev                  # http://localhost:3001
 
 Also run `supabase/family-portal.sql` once. Loved ones share their **Connection ID** from ROF Settings so family can link.
 
-## The DON Eye
+## The DON Eye (Donnie)
 
-A separate command-center app lives in [`don-eye/`](./don-eye) — crest colors, left-hand navigation, and a link out to Real Old Friend.
+A separate DON dashboard lives in [`don-eye/`](./don-eye) — heraldic burgundy / steel / royal blue, parchment tickler cards, and ROF Reports.
 
 ```bash
 cd don-eye

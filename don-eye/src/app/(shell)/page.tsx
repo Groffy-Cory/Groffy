@@ -1,5 +1,5 @@
-import { CommandCenter } from "@/components/sections/CommandCenter";
+import { HomeBoard } from "@/components/HomeBoard";
 
 export default function HomePage() {
-  return <CommandCenter />;
+  return <HomeBoard />;
 }

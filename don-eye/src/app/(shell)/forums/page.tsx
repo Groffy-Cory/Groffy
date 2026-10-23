@@ -1,27 +1,14 @@
-import { PlaceholderBoard } from "@/components/sections/PlaceholderBoard";
+import { ForumsBoard } from "@/components/ForumsBoard";
+import { PageIntro } from "@/components/PageIntro";
 
 export default function ForumsPage() {
   return (
-    <PlaceholderBoard
-      title="Forums"
-      description="Threaded discussion — pin announcements and moderate with care."
-      items={[
-        {
-          title: "General assembly",
-          meta: "12 topics · Last post 2h ago",
-          status: "Active",
-        },
-        {
-          title: "Training Q&A",
-          meta: "8 topics · Last post yesterday",
-          status: "Active",
-        },
-        {
-          title: "Field reports",
-          meta: "3 topics · Awaiting review",
-          status: "Moderated",
-        },
-      ]}
-    />
+    <div className="space-y-5">
+      <PageIntro
+        title="Forums"
+        blurb="Search and discuss. Admin/moderator posting rules are coming. Training videos can open a focused forum window per video."
+      />
+      <ForumsBoard />
+    </div>
   );
 }

@@ -1,29 +1,18 @@
-# The DON Eye
+# The DON Eye (Donnie)
 
-Command-center web app — burgundy / navy / steel theme aligned with the crest. Layout follows the Real Old Friend sidebar pattern (similar spirit to Groffy).
-
-## Run locally
+Professional DON dashboard — burgundy / steel / royal blue with parchment cards.
 
 ```bash
 cd don-eye
 npm install
-npm run dev
+npm run dev   # http://localhost:3002
 ```
 
-Open [http://localhost:3002](http://localhost:3002).
+## Behavior
 
-Optional env (`don-eye/.env.local`):
+- **Home:** large selection boxes for each menu lane; click opens a movable detail window
+- **Sidebar:** regular-sized buttons; click opens the same subject window (Request Consultant = popup only)
+- **Training:** video repository with search; each video can open a **movable/resizable video window** and a **movable/resizable forum window** for that video
+- **Forums:** search + topics; admin/moderator posting rules TBD
 
-```bash
-NEXT_PUBLIC_ROF_APP_URL=http://localhost:3000
-```
-
-## Tabs (left nav)
-
-- Command center, Real Old Friend (external link)
-- Daily: Focus, Motivation, News, Changes, Thoughts
-- Assistant (Grok VA preview UI)
-- Forums, Training, Seminars, Meetings
-- Spirit Cleanse, Guidelines
-
-Wire Grok, news, and CMS content when you are ready — structure and routes are in place.
+Optional: `NEXT_PUBLIC_ROF_APP_URL` in `.env.local`
