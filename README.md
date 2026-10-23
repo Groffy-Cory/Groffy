@@ -56,4 +56,4 @@ Also run `supabase/family-portal.sql` once. Loved ones share their **Connection 
 
 ## Repository maintenance
 
-- `scripts/split-history-by-cutoff.sh` prepares two filtered mirrors of this repo's history split at a cutoff date. It is a dry run by default and only pushes with `PUSH=true CONFIRM_FORCE_MIRROR_PUSH=yes`. See [docs/split-history-by-cutoff.md](./docs/split-history-by-cutoff.md) for usage and safety notes.
+- `scripts/split-history-by-cutoff.sh` prepares two filtered mirrors of this repo: by project folder (`MODE=project`: ROF + Family Portal to `realoldfriend`, The DON Eye to `thedoneye`) or by cutoff date. It is a dry run by default and only pushes with `PUSH=true CONFIRM_FORCE_MIRROR_PUSH=yes`. See [docs/split-history-by-cutoff.md](./docs/split-history-by-cutoff.md) for usage and safety notes.
