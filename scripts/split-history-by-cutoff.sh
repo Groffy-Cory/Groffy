@@ -64,6 +64,16 @@ case "$PUSH" in
   *) die "PUSH must be 'true' or 'false' (got '$PUSH')" ;;
 esac
 
+# Fail fast on push gates before doing any work.
+if [ "$PUSH" = "true" ]; then
+  if [ "${CI:-}" = "true" ]; then
+    die "Refusing to push from a CI environment (CI=true). Run the push manually."
+  fi
+  if [ "$CONFIRM_FORCE_MIRROR_PUSH" != "yes" ]; then
+    die "PUSH=true requires CONFIRM_FORCE_MIRROR_PUSH=yes. Nothing was pushed."
+  fi
+fi
+
 # --- Prerequisites ----------------------------------------------------------
 
 command -v git >/dev/null 2>&1 || die "git is not installed."
@@ -223,18 +233,13 @@ Filtered mirrors:
 Next steps:
   1. Inspect both mirrors (git log, git ls-tree) and confirm they look right.
   2. Back up both destination repositories (e.g. git clone --mirror <target>).
-  3. Re-run with pushing explicitly enabled:
-       PUSH=true CONFIRM_FORCE_MIRROR_PUSH=yes CUTOFF='$CUTOFF' $0
+  3. Re-run with pushing explicitly enabled (same source, targets and cutoff
+     instant, with the cutoff pinned to an explicit UTC offset):
+       PUSH=true CONFIRM_FORCE_MIRROR_PUSH=yes $(printf '%q ' "$0" \
+         --source "$SOURCE_REPO_URL" --cutoff "$CUTOFF_DISPLAY" \
+         --old-target "$OLD_TARGET_URL" --today-target "$TODAY_TARGET_URL")
 EOF
   exit 0
-fi
-
-if [ "${CI:-}" = "true" ]; then
-  die "Refusing to push from a CI environment (CI=true). Run the push manually."
-fi
-
-if [ "$CONFIRM_FORCE_MIRROR_PUSH" != "yes" ]; then
-  die "PUSH=true requires CONFIRM_FORCE_MIRROR_PUSH=yes. Nothing was pushed."
 fi
 
 cat >&2 <<EOF
@@ -263,6 +268,10 @@ fi
 
 push_mirror() {
   local name="$1" dir="$2" url="$3"
+  if [ "$(git --git-dir="$dir" for-each-ref | wc -l | tr -d ' ')" -eq 0 ]; then
+    warn "'$name' has no refs; NOT pushing it (a mirror push would delete every ref on $url)."
+    return 0
+  fi
   git --git-dir="$dir" remote remove split-target >/dev/null 2>&1 || true
   git --git-dir="$dir" remote add split-target "$url"
   log "Force mirror pushing '$name' to $url..."

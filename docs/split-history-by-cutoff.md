@@ -80,7 +80,12 @@ committer timestamp. A commit exactly at the cutoff goes to `today`.
   missing files that were added or changed before the cutoff. Compare trees
   (`git --git-dir=<mirror> ls-tree -r --name-only HEAD`) before publishing.
 - **Validation before any push.** The script fails if an output is empty
-  (unless allowed) or contains a commit on the wrong side of the cutoff.
+  (unless allowed) or contains a commit on the wrong side of the cutoff. Even
+  when allowed, an empty output is never mirror-pushed (that would delete every
+  ref on its target).
+- The push gates are checked before any cloning, and the dry run prints the
+  exact push command for the same source, targets and cutoff instant (pinned
+  to an explicit UTC offset so a different `TZ` cannot change the split).
 - GitHub `refs/pull/*` refs are removed from the working mirrors because GitHub
   rejects pushes to them. `git filter-repo` removes the `origin` remote; the
   script tolerates that and pushes only to an explicitly added remote.
