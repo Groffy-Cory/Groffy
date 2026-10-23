@@ -45,10 +45,12 @@ TZ=America/New_York CUTOFF="2026-10-23 00:00:00" WORKDIR=/tmp/split-run \
   ./scripts/split-history-by-cutoff.sh
 ```
 
-Push mode (only after reviewing a dry run and backing up both targets):
+Push mode (only after reviewing a dry run and backing up both targets). Prefer
+copying the exact command printed at the end of the dry run, which pins the
+cutoff to an explicit UTC offset so a different `TZ` cannot change the split:
 
 ```bash
-PUSH=true CONFIRM_FORCE_MIRROR_PUSH=yes CUTOFF="2026-10-23 00:00:00" \
+PUSH=true CONFIRM_FORCE_MIRROR_PUSH=yes CUTOFF="2026-10-23 00:00:00-04:00" \
   ./scripts/split-history-by-cutoff.sh
 ```
 
