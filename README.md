@@ -36,6 +36,18 @@ npm run dev                  # http://localhost:3001
 
 Also run `supabase/family-portal.sql` once. Loved ones share their **Connection ID** from ROF Settings so family can link.
 
+## The DON Eye (Donnie)
+
+A separate DON dashboard lives in [`don-eye/`](./don-eye) — heraldic burgundy / steel / royal blue, parchment tickler cards, and ROF Reports.
+
+```bash
+cd don-eye
+npm install
+npm run dev                  # http://localhost:3002
+```
+
+Set `NEXT_PUBLIC_ROF_APP_URL` in `don-eye/.env.local` to point at your ROF deployment.
+
 ## Current status
 
 - Sign-in (email/password, optional Google, or guest)
